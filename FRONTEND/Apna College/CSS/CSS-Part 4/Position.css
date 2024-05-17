@@ -1,0 +1,36 @@
+div{
+    height: 100px;
+    width:100px;
+    background-color: green;
+    border: 3px solid black;
+    margin: 20px;
+    display: inline-block;
+
+}
+#Static{
+    background-color: yellow;
+    position: static;
+    top: 100px;
+    left: 100px;
+}
+#Relative{
+    background-color: yellow;
+    position: relative;
+    top: 100px;
+    left: 100px;
+}
+#Absolute{
+    /* parent ka pass koi positon nahi hai
+    isliye vo default or intial postion sa css apply
+    karaga */
+    background-color: yellow;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+}
+#Fixed{
+    background-color: yellow;
+    position: fixed;
+    top: 100px;
+    left: 100px;
+}

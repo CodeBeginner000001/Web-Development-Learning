@@ -1,0 +1,12 @@
+div{
+    height: 200px;
+    width: 200px;
+    background-color: #4dff00;
+    /* code ka hex code ma last ka two 
+    digit opacity ko denote karta hai and 
+    uski value 00 to ff tak vary karta hai */
+}
+ #opacity{
+    background-color: #ffa511;
+    opacity: 1;
+ }

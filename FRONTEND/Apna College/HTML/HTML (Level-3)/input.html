@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>making a check list </title>
+</head>
+
+<body>
+    <form action="/server">
+        <div>
+            <input type="checkbox" name="age" id="age" checked value="Yes">
+            <label for="age">I am 18+</label>
+        </div>
+        <div>
+            <input type="radio" name="fruit" id="apple" value="apple">
+            <label for="apple">Apple</label>
+            <input type="radio" name="fruit" id="Mango" value="Mango">
+            <label for="Mango">Mango</label>
+            <input type="radio" name="fruit" id="Orange" value="Orange">
+            <label for="Orange">Orange</label>
+        </div>
+        <div>
+            <input type="range" min="0" max="100" name="vol" step="10">
+            <label for="Vol">Select your Volume level : </label>
+        </div>
+
+        <div>
+            <label for="feedback">please give your feedback:</label>
+            <textarea name="feedback" id="feedback" placeholder="write a paragraph" cols="30" rows="10"></textarea>
+        </div>
+        <button>submit</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+section{
+    margin-top: 10px;
+
+}
+div{
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    background-color: #7aa874;
+    border: 2px solid black;
+    margin: 10px;
+}
+
+div:nth-of-type(2n)
+{
+    background-color: #f7db6a;
+
+}
+div:nth-of-type(3n)
+{
+    background-color: #ebb02d;
+}
+
+/* transform */
+#one{
+    transform: rotate(45deg);
+}
+
+#two{
+    /* scale = size */
+    /* x and y both will change with same value */
+    transform: scale(0.5);  
+    /* can change x and y with different value */
+    transform: scale(0.5,2);
+    /* change only x */
+    transform: scaleX(2);
+    /* change only y */
+    transform: scaleY(0.5);
+}
+
+#three{
+    /* translate = position */
+    /* change both x and y */
+    transform: translate(100px,100px);
+    /* change only x */
+    transform: translateX(100px);
+    /* change only y */
+    transform: translateY(100px);
+    /* by default along the x axis only */
+    transform: translate(100px); 
+}
+
+#four{
+    /* skew = stratch karna from both ends */
+    /* both sides sa change karna */
+    transform: skew(30deg);
+    /* y axis ka along stratch karna  */
+    transform: skewY(30deg);
+    /* x axis ka along stratch karna */
+    transform: skewX(30deg);
+}
+
+#five{
+    transform: rotate(-45deg) translate(100px) skew(30deg) scale(0.5);
+}

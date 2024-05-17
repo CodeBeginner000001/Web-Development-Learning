@@ -1,0 +1,24 @@
+#image{
+    background-color: #000000;
+    height: 400px;
+    width:600px;
+    margin:10px auto;
+    background-image: url("gojo-satoru-sukuna.png");
+    /* Contain will repeat the image */
+    background-size: contain; 
+    /* strech and blur hoti hai auto ko use karna par */
+    background-size: auto;
+    /* cover will crop the image */
+    background-size: cover;
+    text-align: center;
+    color: #000000;
+}
+
+p,h1{
+    font-size: 30px;
+    letter-spacing: 1px;
+    position: relative;
+    top:320px;
+    display: inline;
+    background-color: aliceblue;
+}

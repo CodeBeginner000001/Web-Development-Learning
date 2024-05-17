@@ -1,0 +1,36 @@
+#container{
+    height: 600px;
+    width:80%;
+    background-color: azure;
+    margin: 10px auto;
+    border: 2px solid black;
+    display: flex;
+    /* so below line control the direction of the content */
+    flex-direction: row;
+    /* below will control the content display position in the container */
+    /* justify-content: center; */
+    /* justify-content: space-evenly; */
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    /* align-items: baseline; */
+    align-content: flex-start;
+}
+#blue{
+    flex-grow: 2;
+}
+#org{
+    align-self: flex-start;
+    flex-grow: 1;
+    /* flex-basis: 50px; */
+}
+h1{
+    text-align: center;
+
+}
+#container div{
+    height: 100px;
+    width: 300px;
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+}
