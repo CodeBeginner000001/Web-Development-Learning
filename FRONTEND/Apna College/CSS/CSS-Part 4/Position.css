@@ -14,7 +14,7 @@ div{
     left: 100px;
 }
 #Relative{
-    background-color: yellow;
+    background-color: rgb(56, 56, 46);
     position: relative;
     top: 100px;
     left: 100px;
@@ -23,7 +23,7 @@ div{
     /* parent ka pass koi positon nahi hai
     isliye vo default or intial postion sa css apply
     karaga */
-    background-color: yellow;
+    background-color: greenyellow;
     position: absolute;
     top: 100px;
     left: 100px;
