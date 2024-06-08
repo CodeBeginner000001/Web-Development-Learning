@@ -103,7 +103,7 @@ Here are some additional resources to help you in your web development journey:
 
 ## License
 
-This repository is licensed under the MIT License.
+This Repository is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
