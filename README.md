@@ -12,7 +12,6 @@ Welcome to the Web Development Learning Repository! This repository is designed 
 - [Projects](#projects)
 - [Contributing](#contributing)
 - [Resources](#resources)
-- [License](#license)
 
 ## Introduction
 
@@ -101,9 +100,6 @@ Here are some additional resources to help you in your web development journey:
 - [Codecademy](https://www.codecademy.com/)
 - [Stack Overflow](https://stackoverflow.com/)
 
-## License
-
-This Repository is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
