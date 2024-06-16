@@ -142,7 +142,7 @@ but add content in the last of the old. And By-default if the element is created
 using this method the content will get add in the end of the content.
 
 prepend(Element): add the new element at the starting of the element.
-
+ 
 insertAdjacent(where,element): add the element to the desired place.
 -> beforebegin: Before the target element itself.
 -> afterbegin: just inside the target element,before the first child.
