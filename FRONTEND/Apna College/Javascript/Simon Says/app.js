@@ -23,7 +23,7 @@ function gameflash(btn) {
     btn.classList.add("flash"); //add the class name from css
     setTimeout(function () {
         btn.classList.remove("flash");
-    }, 200);
+    }, 200); 
 }
 // creating a user flash for a button
 function userflash(btn) {
