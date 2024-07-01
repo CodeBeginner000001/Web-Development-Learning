@@ -76,7 +76,7 @@ function Product({ title, price = 1, features = "", features2 = "" }) {
     Dynamic Component Styling
    */
   let isDiscount = price>30000;
-  let styles={backgroundColor: isDiscount? "red":""};
+  let styles={backgroundColor: isDiscount? "Yellow":""};
     return (
         <div className="Product" style={styles}>
            <h3>{title}</h3>
