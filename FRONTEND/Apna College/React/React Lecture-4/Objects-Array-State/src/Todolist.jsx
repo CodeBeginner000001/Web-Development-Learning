@@ -7,7 +7,7 @@ export default function Todolist(){
 
     let addNewTask = () =>{
         setlist((prevlist)=>{
-            return([...prevlist,{task:newlist,id:uuidv4()}])
+            return([...prevlist,{task:newlist,id:uuidv4(),isDone:false}])
         });
         setnewlist("");
     }
@@ -20,24 +20,24 @@ export default function Todolist(){
 
     }
 
-    let uppercase = () => {
+    let MarkasDone = () => {
         setlist((prevlist) => 
             prevlist.map((list)=>{
             return {
                 ...list,
-                task: list.task.toUpperCase()
+                isDone: true
             };
         })
       );
     };
 
-    let uppercaseOne = (id) => {
+    let MarkasDoneOne = (id) => {
         setlist((prevlist) => 
             prevlist.map((list)=>{
             if(list.id==id){
                 return {
                     ...list,
-                    task: list.task.toUpperCase()
+                    isDone: true
                 };
             } else {
                 return list;
@@ -57,17 +57,17 @@ export default function Todolist(){
             {
                 list.map((list)=>((
                 <li key={list.id}>
-                    <span>{list.task}</span>
+                    <span style={list.isDone?{textDecoration:"line-through"}:{}}>{list.task}</span>
                     &nbsp;&nbsp;&nbsp;
                     <button onClick={()=> deletelistitem(list.id)}>Delete</button>
-                    <button onClick={()=> uppercaseOne(list.id)}>Upper Case</button>
+                    <button onClick={()=> MarkasDoneOne(list.id)}>Mark as done</button>
                 </li>
                 )))
             }
             
         </ul>
         <br />
-        <button onClick={uppercase}>Upper Case</button>
+        <button onClick={MarkasDone}>Mark all done</button>
     </div>
     );
 }
