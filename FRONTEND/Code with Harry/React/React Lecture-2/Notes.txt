@@ -1,0 +1,4 @@
+-> npm is used to install the packages and store it but npx is used to rent the packages and return when done.
+-> React js is a library of javascript and sometime it is refered as framework as it has competition with 
+angular and other frameworks.
+-> run npx create-react-app or npm create-react-app to create a workspace with files that are required.

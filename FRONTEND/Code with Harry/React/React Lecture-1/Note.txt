@@ -1,0 +1,12 @@
+-> React is a very popular in building single page application library of Javascript.
+-> It is a tool that is being maintained by Facebook.
+-> Single page application are the applications that are load once and need not to reload to see the changes
+or moving to next page.
+-> Works on the principal of "Write once and use anywhere and anytime".
+-> Download react development tools for checking on components in the inspect mode in the crome.
+-> Use Thunder client extension to work on API directly in vscode.
+-> Use postman to work on API directly in vscode.
+-> Use the npm to install the packages.
+-> Use ES7 React/Redux/GraphQL/React-Native snippets extension for syntax completion
+-> Bracket Pair Colorizer Extension for Matching brackets.
+-> Use Auto Rename Tag for completing html tags from both end.

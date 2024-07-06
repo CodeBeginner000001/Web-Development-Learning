@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Refresher</title>
+    <style>
+        body{
+            margin-left: 200px;
+        }
+    </style>
+    <script>
+        "use strict";
+        // Use let is preferred over var as it will pass an error if more than one time same variable is declared
+        let a = 10;
+        let b="This is js"
+        const v=45;
+        console.log(a);
+        console.log(b);
+        console.log(v);
+        /*
+        Datatypes in Javascript
+        -> Number
+        -> Objects
+        -> Booleans
+        -> Strings
+        -> Undefined
+        -> null
+        */
+
+        function hello(){
+            console.log("Hello World");
+        }
+        // Write hello() in console to access the hello function of the code
+
+        let obja={
+            r:34,
+            m:46,
+            s:74,
+            func:function (number){
+                console.log("The number is : " + number)
+            }
+        }
+        // to access this write obja.r to access r in the object
+        // to access all the values of the object write obja in console
+        // to access the function write obja.func(34) in console.
+        document.addEventListener("click",function clicked (){
+            console.log("Hello World");
+            // alert("Hello")
+            let confir=confirm("Are you sure")
+            console.log(confir)
+        })
+        let arr=[23,45,67];
+
+        console.log(this); // window
+
+        function myfunc(number){
+            console.log("The number is :"+this);  //undefined
+        }
+        myfunc();
+
+        let myfunc1 = (number)=>{
+            console.log("The number is " + this); // object is window
+        }
+        myfunc1();
+
+        let mobj ={
+            a:this,
+            myfunc2: function(number){
+                console.log(this);
+            },
+            myfunc3: (number=>{
+                console.log(this);
+            })
+        }
+        mobj.myfunc2(); //its own object
+        mobj.myfunc3(); //window
+        console.log(mobj.a);  //window\
+
+        //Callback function is js 
+        // JS is asyncronos script as it keeps on executing the code without stopping the other code lines
+
+        /*
+        for example:-
+        Agar shop pa aap kuch buy karta ho and shopkeeper ko bolta ho ki paisa la ka aata hoon so vo 
+        apka saman alag kar daga and next customer ko attend kara ga
+        */
+        setTimeout(()=>{
+            console.log("Hello World");
+        },3000);
+        console.log("Mai neeche wala script hoon");
+
+
+    </script>
+</head>
+<body>
+    <h1>I am Learning Javascript</h1>
+</body>
+</html>

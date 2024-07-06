@@ -1,0 +1,5 @@
+-> In setting -- search "Emmet" -- Emmet:Include Languages
+   and add key= "javascript"  value= "javascriptreact".
+
+-> Babel compiles JSX down to React.createElement() calls.
+-> Basically Babel is the compiler use to compile JSX file into js files
