@@ -1,0 +1,52 @@
+Certainly! Here are the notes with the explanations clarified and corrected:
+
+---
+
+### Using Props in React
+
+In React, you can pass data to components using props. There are two common ways to use props: 
+
+1. **Using Props in the Constructor Mode**:
+    - Here, you access the props object in the function parameter and then use `props.<parameter_name>` to 
+    access individual properties.
+
+    ```javascript
+    export default function Navbar(props) {
+        return (
+            <>
+                <h1>{props.title}</h1>
+            </>
+        );
+    }
+    ```
+
+    - Using the component in `App.js`:
+
+    ```javascript
+    <Navbar title="This is the title of the navbar" />
+    ```
+
+2. **Using Props in the Destructured Mode**:
+    - In this approach, you destructure the props object directly in the function parameter, allowing you to use 
+    the properties directly by name.
+
+    ```javascript
+    export default function Navbar({ title }) {
+        return (
+            <>
+                <h1>{title}</h1>
+            </>
+        );
+    }
+    ```
+
+    - Using the component in `App.js`:
+
+    ```javascript
+    <Navbar title="This is the title of the navbar" />
+    ```
+
+---
+
+These methods both achieve the same result. The destructuring 
+approach is often preferred for its brevity and clarity, especially when dealing with multiple props.

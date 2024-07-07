@@ -1,0 +1,4 @@
+imr-> import React from 'react'
+imp-> import PropTypes from 'prop-types'
+
+rfc-> it will create a react based component for u
