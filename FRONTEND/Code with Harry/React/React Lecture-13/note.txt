@@ -1,0 +1,10 @@
+a new syntax if nothing is defined in type if type is used
+that is using "props && "
+for example:-
+
+alert is a prop then we can write like
+alert && <h1>I am Alert</h1>
+
+so if alert is true then only h1 tag will be executed else if the alert is false then h1 tag is not executed.
+
+This happens because all the JSX will be converted to Javascript calls.
