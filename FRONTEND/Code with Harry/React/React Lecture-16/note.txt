@@ -1,0 +1,46 @@
+since React-router-dom is upgrade to a next level 
+--> Old working of router told by harry will not working
+
+given below is the new method
+1. import {createBrowserRouter , RouterProvider}from 'react-router-dom'.
+note:- RouterProvider is used to tell where u want to use the delcared router.
+
+2. createBrowserRouter is used to create a router.
+it takes 2 arguments in the form of objects within array
+-> route:- it is an array of objects.
+-> element:- it is the component which is to be rendered.
+
+1. In router  we create an array of object with the function name "createBrowserRouter" and pass two things in the objects
+-----> path:- it is the path of the component which is to be rendered.
+-----> element:- it is the component which is to be rendered.
+
+For example:-
+
+const router = createBrowserRouter([
+    {
+      path: "/",
+      element:  
+      <>Element you want to render</>,
+    },
+    {
+      path: "/about",
+      element: 
+      <>
+      <About/>
+      </>,
+    }
+  ])
+
+3. Using RouterProvider we can use it where we want to call it
+
+For example:-
+<RouterProvider router={router}> ----> This command line is use to call the declared function
+</RouterProvider>
+
+4. change all anchor tag to Link tag after 
+     import {Link} from 'react-router-dom'
+
+-------> anchor tag will relaod the website upon clicking
+
+5. Note that change the href to "to" for Link tag that is being used, upon rendering it will work link an anchor tag
+   but this time it will not reload and be able to switch between pages without reloading.

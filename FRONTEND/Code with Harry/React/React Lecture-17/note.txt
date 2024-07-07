@@ -1,0 +1,27 @@
+To publish on github
+====================
+1. Create a new repository on github
+2. Add the files you want to publish
+3. Commit the changes
+4. Push the changes to github
+
+Now , 
+1. -> Open your package.json and add a homepage field for your project:
+      "homepage": "https://myusername.github.io/my-app",
+the command should be entered on the top of the page before the name:
+
+2. -> To publish the above homepage ,run the given command:
+      npm install --save gh-pages
+
+3. add the following scripts in your package.json:
+   "scripts": {
+->  "predeploy": "npm run build",
+->  "deploy": "gh-pages -d build"
+    "start": "react-scripts start",
+    .
+    .
+    .
+   }
+
+4. npm run deploy
+5. Make sure GitHub Pages option in your GitHub project settings is set to use the gh-pages branch.

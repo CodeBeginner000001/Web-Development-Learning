@@ -3,6 +3,10 @@ import Navbar from './Components/Navbar.mjs';
 import TextForms from './Components/TextForms';
 import React, { useState } from 'react'
 import Alert from './Components/Alert.mjs';
+import About from './Components/About.js';
+import {createBrowserRouter , RouterProvider}from 'react-router-dom'
+
+
 
 function App() {
   const [mode, setMode] = useState('light');
@@ -38,15 +42,33 @@ function App() {
       document.title = 'TextUtils - Light Mode';
     }
   }
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element:  <>
+      <Navbar title="TextUtils" about="About" mode={mode} toggleMode={toggleMode}/>
+      <Alert alert={alert}/>
+      <div className="container my-3 ">
+      <TextForms heading="Enter text to analyze" mode={mode} showAlert={showAlert}/>
+      </div>
+      </>,
+    },
+    {
+      path: "/about",
+      element: <>
+      <Navbar title="TextUtils" about="About" mode={mode} toggleMode={toggleMode}/>
+      <Alert alert={alert}/>
+      <div className="container my-3 ">
+      <About/>
+      </div>
+      </>,
+    }
+  ])
   return (
     <>
       {/* <Navbar /> */}
       {/* <Navbar title="TextUtils"/> */}
-      <Navbar title="TextUtils" about="About" mode={mode} toggleMode={toggleMode}/>
-      <Alert alert={alert}/>
-      <div className="container my-3 ">
-        <TextForms heading="Enter text to analyze" mode={mode} showAlert={showAlert}/>
-      </div>
+       <RouterProvider router={router}/>
     </>
   );
 }
