@@ -2,3 +2,28 @@ imr-> import React from 'react'
 imp-> import PropTypes from 'prop-types'
 
 rfc-> it will create a react based component for u
+
+Redirects and rewrites
+--> You can configure redirect and rewrite rules for your Netlify site in two ways:
+
+-> Save a plain text file called _redirects without a file extension to the publish directory of your site. 
+   You can find _redirects file syntax details below.
+-> Add one or more redirects tables to your Netlify configuration file. This method allows for more structured 
+   configuration and additional capabilities,as described in the Netlify configuration file syntax section below.
+
+   Syntax for the _redirects file
+-> In a _redirects file, each redirect rule must be listed on a separate line, with the original path followed 
+   by the new path or URL. Any line beginning with # will be ignored as a comment. Paths are case-sensitive 
+   and special characters in paths must be url-encoded.
+
+Here is an example:
+# Redirects from what the browser requests to what we serve
+/home                /
+/blog/my-post.php    /blog/my-post
+/news                /blog
+/cuties              https://www.petsofnetlify.com
+/authors/c%C3%A9line /authors/about-c%C3%A9line
+You can customize and alter the redirect behavior by adding options to the end of each line such as HTTP status code, 
+country conditions, or language conditions.
+
+-----------> https://docs.netlify.com/routing/redirects/  <------------ -----> use this link to know more <-------
