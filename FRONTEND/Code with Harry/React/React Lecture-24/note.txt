@@ -1,0 +1,1 @@
+use Json view  extension of viewing the output in json format.

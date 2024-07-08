@@ -1,0 +1,6 @@
+whenever want to use constructor in js using as shown below:-
+
+constructor(){
+    super();
+    ---> then write the code <----
+}
