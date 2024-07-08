@@ -1,6 +1,6 @@
 import './App.css';
 import Navbar from './Components/Navbar.mjs';
-import TextForms from './Components/TextForms';
+import TextForms from './Components/TextForms.js';
 import React, { useState } from 'react'
 import Alert from './Components/Alert.mjs';
 import About from './Components/About.js';
@@ -49,7 +49,7 @@ function App() {
       <Navbar title="TextUtils" about="About" mode={mode} toggleMode={toggleMode}/>
       <Alert alert={alert}/>
       <div className="container my-3 ">
-      <TextForms heading="Enter text to analyze" mode={mode} showAlert={showAlert}/>
+      <TextForms heading="Try TextUtils - Word Counter,Character Counter, Remove extra spaces" mode={mode} showAlert={showAlert}/>
       </div>
       </>,
     },
@@ -59,7 +59,7 @@ function App() {
       <Navbar title="TextUtils" about="About" mode={mode} toggleMode={toggleMode}/>
       <Alert alert={alert}/>
       <div className="container my-3 ">
-      <About/>
+      <About mode={mode}/>
       </div>
       </>,
     }

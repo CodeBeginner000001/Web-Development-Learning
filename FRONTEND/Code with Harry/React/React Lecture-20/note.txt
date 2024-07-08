@@ -1,0 +1,10 @@
+Using /\s+/ will help u to count words with spaces as well as with new lines
+
+
+changing bootstrap accordion-button
+we can use filter:invert()
+
+For-Examples:
+ .accordion-button::after{
+  filter: invert(1)
+}

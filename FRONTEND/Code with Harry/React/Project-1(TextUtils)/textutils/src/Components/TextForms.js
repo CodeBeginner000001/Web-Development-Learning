@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import TextSummary from '../Components/TextSummary.mjs';
+import TextSummary from './TextSummary.mjs';
 import "./placeholdertext.css"
 export default function TextForms({ heading,mode,showAlert }) {
     let [text, setText] = useState("")
@@ -28,16 +28,13 @@ export default function TextForms({ heading,mode,showAlert }) {
     }
 
     const handleCopy = ()=>{
-        var text = document.getElementById("Mybox");
-        text.select();
-        navigator.clipboard.writeText(text.value);
+        navigator.clipboard.writeText(text);
         showAlert("Copied to Clipboard...","success")
     }
 
     const handleExtraspaces=()=>{
         setText(text.split(/[ ]+/).join(" "));
         showAlert("Removed Extra spaces","success")
-
     }
 
     const handleOnchange = (event) => {
@@ -47,15 +44,15 @@ export default function TextForms({ heading,mode,showAlert }) {
 
     return (
         <>
+        <h2 className={`my-4 mb-3 text-${mode==='light'?'dark':'light'}`}>{heading}</h2>
             <div className="mb-3">
-                <label htmlFor="Mybox" className={`form-label b text-${mode==='light'?'dark':'light'}`}>{heading}</label>
-                <textarea placeholder="Enter your text" className={`form-control bg-${mode==='light'? 'light' : 'dark'} text-${mode==='light'? 'dark' : 'light'} ${mode==='light'?'black':'white'}-placeholder`} id="Mybox" rows="8" value={text} onChange={handleOnchange}></textarea>
+                <textarea placeholder="Enter your text" className={`form-control text-${mode==='light'? 'dark' : 'light'} ${mode==='light'?'black':'white'}-placeholder`} id="Mybox" rows="8" value={text} onChange={handleOnchange} style={{backgroundColor:mode==='light'?'white':'#263D55'}}></textarea>
             </div>
-            <button className="btn btn-primary mx-1" onClick={handleUpchange}>Convert to Uppercase</button>
-            <button className="btn btn-primary mx-1" onClick={handleLowchange}>Convert to Lowercase</button>
-            <button className="btn btn-primary mx-1" onClick={handleClearchange}>Clear text</button>
-            <button className="btn btn-primary mx-1" onClick={handleCopy}>Copy text</button>
-            <button className="btn btn-primary mx-1" onClick={handleExtraspaces}>Remove extra spaces</button>
+            <button disabled={text.length===0}className="btn btn-primary mx-1 my-1" onClick={handleUpchange}>Convert to Uppercase</button>
+            <button disabled={text.length===0}className="btn btn-primary mx-1 my-1" onClick={handleLowchange}>Convert to Lowercase</button>
+            <button disabled={text.length===0}className="btn btn-primary mx-1 my-1" onClick={handleClearchange}>Clear text</button>
+            <button disabled={text.length===0}className="btn btn-primary mx-1 my-1" onClick={handleCopy}>Copy text</button>
+            <button disabled={text.length===0}className="btn btn-primary mx-1 my-1" onClick={handleExtraspaces}>Remove extra spaces</button>
             <div className="container my-3">
                 <TextSummary Text={text} mode={mode} />
             </div>
