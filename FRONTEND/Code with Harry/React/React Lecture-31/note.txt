@@ -1,0 +1,60 @@
+Question. -> Difference between createBrowserRouter and BrowserRouter and there use in the code ?
+
+Answer. -> The BrowserRouter and createBrowserRouter are both used for client-side routing in React applications, 
+           but they serve different purposes.
+
+-> BrowserRouter is a component that establishes the context for routing within your application. 
+   It listens to changes in the browser's URL and ensures that the correct React components are rendered 
+   based on the current URL. It creates a dedicated context where route-related information is stored, 
+   making it accessible to other components, such as Route and Link.
+
+-> On the other hand, createBrowserRouter is a function that creates a router instance. It is used to create 
+   a router that can be used to manage client-side routing in your application.
+
+Here's an example of how to use BrowserRouter:
+For example:-
+
+import React from "react";
+import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
+
+const App = () => {
+  return 
+  <Router>
+   <Routes>
+    <Route path="/" element={<Home />} />
+    {/* your app components */}
+   </Routes>
+</Router>;
+};
+
+---> In this example, the entire application is wrapped with the BrowserRouter component, enabling client-side 
+     routing for all child components within the router.
+
+Here's an example of how to use createBrowserRouter:
+As for createBrowserRouter, it is typically used to create a custom router instance, which can be used to manage 
+routing in your application. Here's an example:
+For example:-
+
+import { createBrowserRouter , RouterProvider} from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/about",
+    element: <About />,
+  },
+]);
+
+const App = () => {
+  return <RouterProvider router={router}>{/* your app components */}</RouterProvider>;
+};
+
+---> In this example, createBrowserRouter is used to create a custom router instance, which is then passed 
+     to the RouterProvider component to manage routing in the application.
+
+In summary, BrowserRouter is a component that establishes the context for routing, while createBrowserRouter 
+is a function that creates a custom router instance. Both are used for client-side routing in React applications, 
+but they serve different purposes.

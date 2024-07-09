@@ -1,0 +1,26 @@
+Blogs
+
+why my api key is undefined even if .env file is in the root
+
+
+The issue is likely due to the fact that you're trying to access the REACT_NEWS_APP_API environment variable in your App.js file, but it's not being loaded correctly.
+
+Here are a few things to check:
+
+Make sure your .env file is in the root of your project: The .env file should be in the same directory as your package.json file.
+Check the naming convention: Environment variables in a .env file should be in uppercase, so try renaming REACT_NEWS_APP_API to REACT_NEWS_APP_API_KEY (or something similar).
+Restart your development server: After updating your .env file, restart your development server by running npm start or yarn start again.
+Check if the variable is being loaded correctly: You can add a console.log statement in your App.js file to check if the environment variable is being loaded correctly:
+javascript
+Edit
+Copy code
+console.log(process.env.REACT_NEWS_APP_API_KEY);
+If this logs undefined, then there's an issue with loading the environment variable.
+
+Make sure you're using the correct syntax: In your .env file, the syntax should be:
+Edit
+Copy code
+REACT_NEWS_APP_API_KEY=your_api_key_here
+Note the syntax: VARIABLE_NAME=value.
+
+If you've checked all of these and it's still not working, try creating a new .env file in the root of your project with a simple variable, like TEST_VAR=hello, and see if that gets loaded correctly. This will help you isolate the issue.

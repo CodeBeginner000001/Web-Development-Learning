@@ -1,0 +1,44 @@
+Using date function in javascript
+
+-> The Date object is used to work with dates and times.
+-> The Date object can operate in two modes:
+
+1. As a date object: this object contains and manipulates the date and time.
+2. As a number: this number of milliseconds from January 1, 1970, 00:00:00:00 UTC (Universal Coordinated Time) 
+   to the present time.
+
+-> The Date object can be created using the new keyword or by using the Date() constructor.
+-> The Date() constructor creates a JavaScript Date object with a time value expressed in a number of milliseconds since
+   January 1, 1970, 00:00:00 UTC.
+
+For example:-
+let a = "2021-08-27T07:00:00Z"
+let d = new.Date(a)
+console.log(d)
+// Output: Fri Aug 27 2021 07:00:00 GMT+0530
+
+-> d.getDate() // Output: 27
+
+-> d.getDay() // Output: 5
+
+-> d.getFullYear() // Output: 2021
+
+-> d.getHours()    // Output: 7
+
+-> d.getMinutes()    // Output: 0
+
+-> d.getMonth()    // Output: 7
+
+-> d.getSeconds()    // Output: 0
+
+-> d.getTime()    // Output: 1629980400000
+
+-> d.getTimezoneOffset()    // Output: 330
+
+-> d.toDateString()    // Output: Fri Aug 27 2021
+
+-> d.toTimeString()    // Output: 07:00:00 GMT+0530 (India Standard Time)
+
+-> d.toISOString()    // Output: 2021-08-27T07:00:00.000Z
+
+-> d.toGMTString()    // Output: Fri, 27 Aug 2021 02:30:00 GMT

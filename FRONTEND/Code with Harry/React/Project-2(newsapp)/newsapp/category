@@ -1,0 +1,8 @@
+<Route exact path="/business" component={<News keys="business" pageSize={21} country={"us"} category={"business"} api_key={"eceb2ac4713042f3849d09ac7a25c7e2"} />}/>
+<Route exact path="/entertainment" component={<News keys="entertainment" pageSize={21} country={"us"} category={"entertainment"} api_key={"eceb2ac4713042f3849d09ac7a25c7e2"} />}/>
+<Route exact path="/general" component={<News keys="general" pageSize={21} country={"us"} category={"general"} api_key={"eceb2ac4713042f3849d09ac7a25c7e2"} />}/>
+<Route exact path="/health" component={<News keys="health" pageSize={21} country={"us"} category={"health"} api_key={"eceb2ac4713042f3849d09ac7a25c7e2"} />}/>
+<Route exact path="/science" component={<News keys="science" pageSize={21} country={"us"} category={"science"} api_key={"eceb2ac4713042f3849d09ac7a25c7e2"} />}/>
+<Route exact path="/sports" component={<News keys="sports" pageSize={21} country={"us"} category={"sports"} api_key={"eceb2ac4713042f3849d09ac7a25c7e2"} />}/>
+<Route exact path="/technology" component={<News keys="technology" pageSize={21} country={"us"} category={"technology"} api_key={"eceb2ac4713042f3849d09ac7a25c7e2"} />}/>
+

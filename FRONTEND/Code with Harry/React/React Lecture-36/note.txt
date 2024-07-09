@@ -1,0 +1,48 @@
+Note on React-Top-Loading-Bar
+
+React-Top-Loading-Bar is a popular React library used to display a loading bar at the top of the page, 
+indicating the progress of an operation. It's a simple and customizable way to provide feedback to 
+users while data is being loaded or processed.
+
+Example Syntax:
+import LoadingBar from 'react-top-loading-bar';
+
+class App extends React.Component {
+  state = {
+    progress: 0,
+  };
+
+  setProgress = (progress) => {
+    this.setState({ progress });
+  };
+
+  render() {
+    return (
+      <div>
+        <LoadingBar
+          color='#f11946'
+          progress={this.state.progress}
+          onLoaderFinished={() => this.setProgress(0)}
+        />
+        {/* Your app content here */}
+      </div>
+    );
+  }
+}
+
+now you can pass this setProgress function and change the value to render it .
+
+In this example:
+
+We import the LoadingBar component from react-top-loading-bar.
+We define a state progress to track the loading progress.
+We create a setProgress function to update the progress state.
+We render the LoadingBar component, passing the color, progress, and onLoaderFinished props.
+-> color specifies the color of the loading bar.
+-> progress sets the current progress of the loading bar (between 0 and 100).
+-> onLoaderFinished is a callback function that will be called when the loading bar finishes (i.e., when progress reaches 100).
+   By using React-Top-Loading-Bar, you can easily add a loading indicator to your React application, providing a better user experience during data loading or processing.
+
+
+
+

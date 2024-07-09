@@ -1,0 +1,41 @@
+What is Infinite Scroll? 
+Infinite Scroll is a technique used to load content continuously as the user scrolls 
+down the page, eliminating the need for pagination.
+
+How does it work in the code? In the code, Infinite Scroll is implemented using the 
+react-infinite-scroll-component library. The InfiniteScroll component is used to wrap 
+the content that needs to be loaded infinitely.
+
+Key props:
+
+-> dataLength: The length of the data that has been loaded so far.
+-> next: A function that is called when the user reaches the end of the loaded data. 
+         This function is responsible for loading more data.
+-> hasMore: A boolean that indicates whether there is more data to be loaded.
+-> loader: A component that is displayed while more data is being loaded.
+
+How it's used in the code:
+
+-> The InfiniteScroll component is used to wrap the div container that holds the news items.
+-> The dataLength prop is set to the length of the articles array, which holds the loaded news items.
+-> The next prop is set to the fetchMoreData function, which is responsible for loading more news items 
+   when the user reaches the end of the loaded data.
+-> The hasMore prop is set to a boolean that checks whether the length of the articles array is less than the total number of results.
+-> The loader prop is set to a Spinner component, which is displayed while more data is being loaded.
+
+How the fetchMoreData function works:
+
+-> The fetchMoreData function is called when the user reaches the end of the loaded data.
+-> It increments the page state by 1 and fetches more data from the API using the fetch function.
+-> The fetched data is then concatenated with the existing articles array and the totalResult state is updated.
+-> The setState method is used to update the state with the new data.
+
+Benefits of Infinite Scroll:
+
+-> Provides a better user experience by eliminating the need for pagination.
+-> Allows users to scroll through a large amount of data without having to click on multiple pages.
+-> Can improve page loading times by loading data only when it's needed.
+
+-----> https://www.npmjs.com/package/react-infinite-scroll-component  <-------
+
+
