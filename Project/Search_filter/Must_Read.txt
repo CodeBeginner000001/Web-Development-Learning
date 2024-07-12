@@ -1,0 +1,17 @@
+There are two folder
+--> src (Client Side)
+--> server (server side)
+
+src folder contain client side rendering whereas server contain server side rendering 
+
+when you want to take a look at the outcome 
+1. Open terminal in this folder (Search_filter)
+2. Run command --> npm run dev <--
+A local link will be generated and when clicked chrome browser or default browser opens.
+if working well and able to search or sees all 1000 result then you are good to go.
+
+----> if not
+1. open terminal for the server folder
+2. Run command --> node app.js <--
+3. and then refresh the previous tab or client side tab
+and it will work well.
