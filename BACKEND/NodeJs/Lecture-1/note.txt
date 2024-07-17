@@ -1,0 +1,1 @@
+Vs Code is build on Nodejs I.e., VsCode is developed using nodejs
