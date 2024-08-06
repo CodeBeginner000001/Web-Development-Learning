@@ -59,3 +59,6 @@ console.log(sum(1,2));
 console.log(mul(5,4));
 console.log(g);
 console.log(pi);
+
+import { generate } from "random-words";
+console.log(generate());

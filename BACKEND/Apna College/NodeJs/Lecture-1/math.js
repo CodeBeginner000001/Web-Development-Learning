@@ -31,7 +31,7 @@
 // exports.g=9.8;
 // exports.pi=3.14;
 
-/*Using import */
+/*Using import in script.js*/
 export const sum=(a,b)=>a+b;
 export const mul=(a,b)=>a*b;
 export const g=9.8;
