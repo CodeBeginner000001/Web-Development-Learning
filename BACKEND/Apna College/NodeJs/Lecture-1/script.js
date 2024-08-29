@@ -20,7 +20,7 @@ arguments passed when the node process was launched.
 
 
 
-/* 
+/*  
 Module.exports
 */
 // const math=require("./math")

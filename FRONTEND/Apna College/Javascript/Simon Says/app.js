@@ -12,7 +12,7 @@ document.addEventListener("keypress", function (event) {
     }
     if (event.code == "Enter") count++;
     // console.log(event.code);
-    if (count<2) {
+    if (count < 2) {
         levelup();
     }
 });
@@ -23,7 +23,7 @@ function gameflash(btn) {
     btn.classList.add("flash"); //add the class name from css
     setTimeout(function () {
         btn.classList.remove("flash");
-    }, 200); 
+    }, 200);
 }
 // creating a user flash for a button
 function userflash(btn) {
@@ -49,13 +49,26 @@ function levelup() {
     // calling btnflash function for flashing
     gameflash(randombtn);
 }
+// User pressed the button
+let allbtns = document.querySelectorAll(".btn");
+for (btns of allbtns) {
+    btns.addEventListener("click", btnpress);
+}
+// calling userflash function
+function btnpress() {
+    // console.log(this);
+    userflash(this);
+    userseq.push(this.getAttribute("id"));
+    // console.log(userseq);
+    checkans(userseq.length - 1);
+}
+
 function checkans(idx) {
     if (userseq[idx] === gameseq[idx]) {
-        if (userseq.length == gameseq.length)
-        {
+        if (userseq.length == gameseq.length) {
             setTimeout(levelup, 1000);
         }
-        
+
     } else {
         if (maxScore < level) {
             maxScore = level;
@@ -77,16 +90,3 @@ function reset() {
     count = 0;
 }
 
-// calling userflash function
-function btnpress() {
-    // console.log(this);
-    userflash(this);
-    userseq.push(this.getAttribute("id"));
-    // console.log(userseq);
-    checkans(userseq.length-1);
-}
-// User pressed the button
-let allbtns = document.querySelectorAll(".btn");
-for (btns of allbtns) {
-    btns.addEventListener("click", btnpress);
-}

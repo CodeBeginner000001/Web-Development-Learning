@@ -8,9 +8,11 @@ app.listen(port,()=>{
 }) 
 app.use(express.static(path.join(__dirname,"/public/js")));
 app.use(express.static(path.join(__dirname,"/public/css")));
+
 app.set("view engine","ejs");
 app.set("views",path.join("/Users/ashugoyal/Desktop/Web Dev/Learning/BACKEND/Apna College/NodeJs/Lecture-3 (EJS)","/views"));
 app.set("views",path.join("/Users/ashugoyal/Desktop/Web Dev/Learning/BACKEND/Apna College/NodeJs/Lecture-3 (EJS)/using_path","/views"));
+
 app.get("/",(req,res)=>{
     res.send("this is home");
 })
