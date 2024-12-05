@@ -87,7 +87,7 @@ import NoteContext from "./NoteContext"
       const [notes, setNotes] = useState(notesIntitals)
     //   add a note
     const addNote = (title , description, tag)=>{
-        console.log("adding new note");
+        // console.log("adding new note");
         let note = {
             "_id": "6751a5e48dbed0786bb49b2a",
             "user": "6750b848f83e2dac39e1f5e5",
@@ -104,8 +104,9 @@ import NoteContext from "./NoteContext"
 
     }
     // delete a note
-    const deleteNote = ()=>{
-
+    const deleteNote = (id)=>{
+        const newNote = notes.filter((note)=> {return note._id!==id})
+        setNotes(newNote);
     }
     return (
         <NoteContext.Provider value={{notes,addNote,deleteNote,editNote}}>

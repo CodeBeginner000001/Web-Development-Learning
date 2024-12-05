@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom' // it is use returns the pathname
 const Navbar = () => {
   let location = useLocation(); // alloting useLocation a variable
   useEffect(()=>{
-    console.log(location.pathname);
+    // console.log(location.pathname);
   },[location]) // reload the page when the path changes
   return (
     <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
