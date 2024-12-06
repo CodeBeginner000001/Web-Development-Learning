@@ -4,8 +4,8 @@ import NoteCard from './NoteCard';
 import AddNote from './AddNote';
 const Notes = () => {
     const context = useContext(NoteContext);
-    const { notes, getNotes } = context;
-    const [note,setNote] = useState({etitle:"",edescription:"",etag:""})
+    const { notes, getNotes ,editNote} = context;
+    const [note,setNote] = useState({id:"",etitle:"",edescription:"",etag:""})
 
     useEffect(() => {
         getNotes();
@@ -14,17 +14,23 @@ const Notes = () => {
     // update note icon
     const updateNote = (currentNote) => {
         ref.current.click();
-        setNote({etitle :currentNote.title,edescription: currentNote.description,etag:currentNote.tag})
+        setNote({id:currentNote._id, etitle :currentNote.title,edescription: currentNote.description,etag:currentNote.tag})
     }
     let i = 0;
+    // creating a ref for modal to open when edit icon is clicked and this ref is used in the modal button names Launch demo modal
     const ref = useRef(null);
+    // creating a ref for modal to close once user click update button in the modal
+    const closeRef = useRef(null);
 
     const handleClick = (e)=>{
-        console.log(note);
-        e.preventDefault();
+        // console.log(note);
+        editNote(note.id,note.etitle,note.edescription,note.etag);
+        closeRef.current.click();
     }
-    const onChange = (e)=>{
-        setNote({...note,[e.target.name]: e.target.value}) 
+
+
+    const onChange = (e)=>{ 
+        setNote({...note,[e.target.name]: e.target.value})  
     }
     return (
         <>
@@ -56,7 +62,7 @@ const Notes = () => {
                             </form>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" ref={closeRef}>Close</button>
                             <button type="button" className="btn btn-primary" onClick={handleClick}>Update Note</button>
                         </div>
                     </div>

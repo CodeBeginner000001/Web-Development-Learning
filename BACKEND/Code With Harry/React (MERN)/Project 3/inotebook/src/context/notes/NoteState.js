@@ -11,7 +11,7 @@ const NoteState = (props) => {
         const response = await fetch(`${host}/api/notes/fetchallnotes`, {
             method: 'GET',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json', 
                 "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjc1MGI4NDhmODNlMmRhYzM5ZTFmNWU1In0sImlhdCI6MTczMzM5NTE1OX0.rwSEf52uTud1X5m4yYx0KxIJXTuLT7xmW9EDmuaAddc",
             },
         })
@@ -19,7 +19,6 @@ const NoteState = (props) => {
         // console.log(json); 
         setNotes(json);
     }
-
     //   add a note
     const addNote = async (title, description, tag) => {
         // TODO: API Call
@@ -31,6 +30,8 @@ const NoteState = (props) => {
             },
             body: JSON.stringify({title,description,tag})
         })
+        let json = await response.json();
+        // console.log(json);
 
         // console.log("adding new note");
         let note = {
@@ -48,27 +49,31 @@ const NoteState = (props) => {
     const editNote = async (id, title, description, tag) => {
         //TODO: API Call
         const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
-            method: 'POST',
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
                 "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjc1MGI4NDhmODNlMmRhYzM5ZTFmNWU1In0sImlhdCI6MTczMzM5NTE1OX0.rwSEf52uTud1X5m4yYx0KxIJXTuLT7xmW9EDmuaAddc",
             },
-            body: JSON.stringify(title,description,tag)
-        })
+            body: JSON.stringify({title,description,tag})
+        }) 
+        const json = response.json();
+        // console.log(json);
 
+        let newNotes = JSON.parse(JSON.stringify(notes))
         // Logic to edit in client
-        for (let i = 0; i < notes.length(); i++) {
-            let element = notes[i];
+        for (let i = 0; i < newNotes.length; i++) {
+            let element = newNotes[i]; 
             if (element._id === id) {
                 element.title = title
                 element.description = description
                 element.tag = tag
+                break;
             }
         }
+        setNotes(newNotes);
     }
     // delete a note
     const deleteNote = async (id) => {
-        // TODO: API Call
         //TODO: API Call
         const response = await fetch(`${host}/api/notes/deletenote/${id}`, {
             method: 'DELETE',
@@ -83,6 +88,7 @@ const NoteState = (props) => {
         const newNote = notes.filter((note) => { return note._id !== id })
         setNotes(newNote);
     }
+
     return (
         <NoteContext.Provider value={{ notes, addNote, deleteNote, editNote, getNotes }}>
             {props.children}
