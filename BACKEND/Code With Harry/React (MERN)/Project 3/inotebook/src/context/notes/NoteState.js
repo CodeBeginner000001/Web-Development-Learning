@@ -34,15 +34,7 @@ const NoteState = (props) => {
         // console.log(json);
 
         // console.log("adding new note");
-        let note = {
-            "_id": "6751a5e48dbed0786bb49b2a",
-            "user": "6750b848f83e2dac39e1f5e5",
-            "title": title,
-            "description": description,
-            "tag": tag,
-            "date": "2024-12-05T13:08:52.046Z",
-            "__v": 0
-        }
+        const note = json;
         setNotes(notes.concat(note)); // concat returns an array whereas push updates an array
     }
     // edit a note
