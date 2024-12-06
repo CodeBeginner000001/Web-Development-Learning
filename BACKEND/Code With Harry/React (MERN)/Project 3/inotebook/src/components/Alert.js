@@ -1,13 +1,18 @@
 import React from 'react'
 
-const Alert = () => {
+
+export default function Alert({ alert }) {
+    let FirstLetter = (word) => {
+        if(word==="danger"){
+            word = "error"
+        }
+        return word[0].toUpperCase() + word.slice(1);
+    }
     return (
-        <>
-            <div className="alert alert-danger" role="alert">
-                A simple danger alert—check it out!
-            </div>
-        </>
+        <div style={{height:'50px'}}>
+            {alert && <div className={`alert alert-${alert.type} alert-dismissible fade show`} role="alert">
+                <strong>{FirstLetter(alert.type)}</strong>: {alert.msg}
+            </div>}
+        </div>
     )
 }
-
-export default Alert
