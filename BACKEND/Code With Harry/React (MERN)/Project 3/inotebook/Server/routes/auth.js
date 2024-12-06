@@ -19,10 +19,10 @@ router.post("/createuser", [
         // console.log(req.body);
         /** checking for errors from validator , return bad request and the errors */
         const errors = validationResult(req);
-        if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
+        if (!errors.isEmpty()) return res.status(400).json({ success:false,errors: errors.array() });
         /** Return the Valid user response and check wheather the user with this email exists already*/
         let user = await User.findOne({ email: req.body.email })
-        if (user) return res.status(400).json({ error: "Sorry a user with this email already exists" })
+        if (user) return res.status(400).json({ success:false,error: "Sorry a user with this email already exists" })
 
         /*
          Securing password using bcrypt and salt, now salt is what u add to the password and 
@@ -43,7 +43,7 @@ router.post("/createuser", [
             }
         }
         const AuthToken = jwt.sign(data, JWT_Secret)
-        res.json({ AuthToken });
+        res.json({ success:true,AuthToken });
         // res.send("Authentication");
         // const user = User(req.body);
         // user.save();
@@ -59,7 +59,7 @@ router.post("/login", [
     body("password", "Password cannot be blank").isLength({ min: 3 }).exists()], async (req, res) => {
         //  checking for errors from validator , return bad request and the errors
         const error = validationResult(req);
-        if (!error.isEmpty()) return res.status(400).json({ error: error.array() })
+        if (!error.isEmpty()) return res.status(400).json({ success:false,error: error.array() })
         // destructing the body data
         const { email, password } = req.body;
         try {
@@ -68,12 +68,12 @@ router.post("/login", [
             let user = await User.findOne({ email });
             // checking if the user exists in the database
             if (!user) {
-                return res.status(400).json({ error: "Please try to login with Valid Credentials" });
+                return res.status(400).json({ success:false,error: "Please try to login with Valid Credentials" });
             }
             // checking if the password is correct by sending the entered password and the password from the database
             const passwordCheck = await bcrypt.compare(password, user.password);
             if (!passwordCheck) {
-                return res.status(400).json({ error: "Please try to login with Valid Credentials" });
+                return res.status(400).json({ success:false,error: "Please try to login with Valid Credentials" });
             }
             // if all goes when the send payload
             const data = {
@@ -82,7 +82,7 @@ router.post("/login", [
                 }
             }
             const AuthToken = jwt.sign(data, JWT_Secret);
-            res.json({ AuthToken });
+            res.json({ success:true,AuthToken });
         }
         catch {
             console.log(error);
