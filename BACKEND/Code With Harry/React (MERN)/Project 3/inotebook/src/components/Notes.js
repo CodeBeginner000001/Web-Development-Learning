@@ -2,25 +2,33 @@ import React, { useContext, useEffect, useRef,useState } from 'react'
 import NoteContext from '../context/notes/NoteContext'
 import NoteCard from './NoteCard';
 import AddNote from './AddNote';
+import { useNavigate } from 'react-router-dom';
 const Notes = ({showAlert}) => {
     const context = useContext(NoteContext);
     const { notes, getNotes ,editNote} = context;
-    const [note,setNote] = useState({id:"",etitle:"",edescription:"",etag:""})
+    let navigate = useNavigate();
 
     useEffect(() => {
-        getNotes();
+        if(localStorage.getItem('token'))
+        {
+            getNotes()
+        }else{
+            navigate('/login');
+        }
         // eslint-disable-next-line 
     }, [])
+    // creating a ref for modal to open when edit icon is clicked and this ref is used in the modal button names Launch demo modal
+    const ref = useRef(null);
+    // creating a ref for modal to close once user click update button in the modal
+    const closeRef = useRef(null);
+    const [note,setNote] = useState({id:"",etitle:"",edescription:"",etag:""})
+
     // update note icon
     const updateNote = (currentNote) => {
         ref.current.click();
         setNote({id:currentNote._id, etitle :currentNote.title,edescription: currentNote.description,etag:currentNote.tag})
     }
-    let i = 0;
-    // creating a ref for modal to open when edit icon is clicked and this ref is used in the modal button names Launch demo modal
-    const ref = useRef(null);
-    // creating a ref for modal to close once user click update button in the modal
-    const closeRef = useRef(null);
+   
 
     const handleClick = (e)=>{
         // console.log(note);
@@ -79,7 +87,7 @@ const Notes = ({showAlert}) => {
                 </div>
                 {
                     notes.map((note) => {
-                        return <NoteCard note={note} key={i++} updateNote={updateNote} showAlert={showAlert}/>
+                        return <NoteCard note={note} key={note._id} updateNote={updateNote} showAlert={showAlert}/>
                     }
                     )
                 }

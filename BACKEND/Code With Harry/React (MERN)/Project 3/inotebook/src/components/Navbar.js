@@ -1,6 +1,13 @@
 import React, { useEffect } from 'react'
-import { useLocation, Link } from 'react-router-dom' // it is use returns the pathname of the current route
+import { useLocation, Link, useNavigate } from 'react-router-dom' // it is use returns the pathname of the current route
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = ()=>{
+    localStorage.removeItem('token');
+    navigate('/login');
+  }
+
   let location = useLocation(); // alloting useLocation a variable
   useEffect(() => {
     // console.log(location.pathname);
@@ -21,10 +28,10 @@ const Navbar = () => {
               <a className={`nav-link ${location.pathname === "/about" ? "active" : ""}`} href="/about">About</a>
             </li>
           </ul>
-          <form className="d-flex">
+          {!localStorage.getItem('token')?<form className="d-flex">
             <Link type="button" className="btn btn-warning mx-1" to="/login">Login</Link>
             <Link type="button" className="btn btn-warning mx-1" to="/signup">Sign Up</Link>
-          </form>
+          </form>:<button className='btn btn-warning' onClick={handleLogout}>Logout</button>}
         </div>
       </div>
     </nav>

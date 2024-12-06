@@ -16,13 +16,13 @@ const Login = ({showAlert}) => {
             body: JSON.stringify({email:credentials.email,password:credentials.password})
         });
         const json = await response.json();
-        console.log(json);
+        // console.log(json);
         if(json.success)
         {
             // save the auth token and redirect
-            localStorage.setItem('token',json.authToken);
-            navigate('/');
+            localStorage.setItem('token',json.AuthToken);
             showAlert("Logged in Successfully","success")
+            navigate('/');
         }else{
             showAlert("Invalid Credentials","danger")
         }
@@ -32,13 +32,14 @@ const Login = ({showAlert}) => {
     }
     return (
         <>
-            <form onSubmit={handleSubmit}>
+        <h1>Login to use iNotebook</h1>
+            <form onSubmit={handleSubmit} className='my-3'>
                 <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Email address</label>
+                    <label htmlFor="email" className="form-label">Email address :</label>
                     <input type="email" className="form-control" id="email" name="email" value={credentials.email} onChange={onChange}/>
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="password" className="form-label">Password</label>
+                    <label htmlFor="password" className="form-label">Password :</label>
                     <input type="password" className="form-control" id="password" name="password" value={credentials.password} onChange={onChange}/>
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
