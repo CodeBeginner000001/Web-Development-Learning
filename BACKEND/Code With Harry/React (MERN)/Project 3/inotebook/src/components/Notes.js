@@ -1,10 +1,13 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import NoteContext from '../context/notes/NoteContext'
 import NoteCard from './NoteCard';
 import AddNote from './AddNote';
 const Notes = () => {
     const context = useContext(NoteContext);
-    const { notes} = context;
+    const { notes, getNotes} = context;
+    useEffect(()=>{
+        getNotes();
+    },[])
     let i = 0;
     return (
         <>
@@ -23,3 +26,4 @@ const Notes = () => {
 }
 
 export default Notes
+  
